@@ -55,6 +55,30 @@ git config --global http.schannelCheckRevoke false
 
 [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) - Devtools integration for vue
 
+## Accessibility Resources
+
+### Browser Extensions
+* [Wave](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh) - Rapid WCAG visualizer. Used via the extensions toolbar.
+
+* [axe](https://chrome.google.com/webstore/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd) - Comprehensive WCAG checker. Used via dev tools.
+
+* [Colorblindly](https://chrome.google.com/webstore/detail/colorblindly/floniaahmccleoclneebhhmnjgdfijgg) - Color blindness simulator. Used via the extensions toolbar.
+
+### Client-Side Scripts
+* The sites themselves provide accessibility checks via the `Toolbox` > `Accessibility` tab. Backends: [axe-core](https://github.com/dequelabs/axe-core), [accessibilityjs](https://github.com/github/accessibilityjs)
+
+* [sa11y](https://ryersondmp.github.io/sa11y/) - Client-side script to visualize WCAG checks.
+
+* [tota11y](https://khan.github.io/tota11y/#Try-it) - Client-side script to visualize WCAG checks. Geared toward non-technical users.
+
+### Offline Tools
+* `npm run pa11y` to run a CLI acccessibility tool. Backend: [Pa11y](https://pa11y.org)
+
+* [NVDA Screen Reader](https://www.nvaccess.org/download/) - Free screen reader for Windows.
+
+### Materials
+* [ONRR.gov Accessibility Guidance](https://github.com/ONRR/onrr.gov-site/wiki/Accessibility)
+
 ## Troubleshooting
 
 ### SSL Errors
@@ -70,3 +94,17 @@ https://stackoverflow.com/a/46408398/3224736
 https://stackoverflow.com/a/53064542/3224736
 
 https://stackoverflow.com/a/53090169/3224736
+
+## Reference
+* [Vue](https://vuejs.org/v2/guide/)
+* [Vue Router](https://router.vuejs.org/guide/)
+* [Vuex](https://vuex.vuejs.org/guide/)
+* [Vuetify](https://vuetifyjs.com/en/getting-started/installation/)
+* [Material Design Icons](https://materialdesignicons.com/) (Use SVG syntax)
+  * [MDI Picker](https://chrome.google.com/webstore/detail/materialdesignicons-picke/edjaedpifkihpjkcgknfokmibkoafhme)
+* [lodash](https://lodash.com/docs) (Use individual import syntax)
+* [Vue Upload Component](https://lian-yue.github.io/vue-upload-component/#/en/documents)
+* [html2pdf](https://github.com/eKoopmans/html2pdf.js)
+  * [html2canvas options](https://html2canvas.hertzen.com/configuration)
+  * [jsPDF options](https://html2canvas.hertzen.com/configuration)
+* [tiptap](https://www.tiptap.dev/examples/default/)

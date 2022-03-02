@@ -32,7 +32,7 @@ Node is a JavaScript environment that is used to manage and bundle the frontend 
 
 https://nodejs.org/en/download/current/
 
-Be sure to download a version >= 17.0.0. NPM will be installed with Node. You do **not** need to install Chocolatey, if it offers.
+Be sure to download a version >= 17.0.0. NPM will be installed with Node. You should install Chocolatey, if it offers.
 
 After installation, open a PowerShell or Terminal window and run:
 ```bash

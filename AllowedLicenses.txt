@@ -1,0 +1,1 @@
+MIT, MIT OR X11, Zlib, (MIT AND Zlib), BSD, ISC, WTFPL, Apache-2.0, Unlicense, MPL-2.0, CC-BY-4.0, CC0-1.0

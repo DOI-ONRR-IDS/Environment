@@ -7,6 +7,7 @@
   - Create an elevated terminal
   - Download missing scripts from https://github.com/DOI-ONRR-IDS/Environment/tree/master/dev-scripts
   - Create .npmrc, if missing
+  - Install dependencies
   - Install mkcert
   - Install a local CA
   - Install a new self-signed certificate
@@ -133,6 +134,16 @@ if (!(Test-Path $NPMRCPath))
 
   (Get-Content $NPMRCPath).replace("_authToken=", "_authToken=$NPMPAT") | Set-Content $NPMRCPath
 }
+
+
+
+<#
+  Install dependencies
+#>
+
+dotnet restore
+
+npm install
 
 
 

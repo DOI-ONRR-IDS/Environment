@@ -13,6 +13,9 @@
   - Install a new self-signed certificate
 
 .NOTES
+  This script is mostly idempotent. You should be able to safely run it
+  multiple times, for instance to regenerate the SSL certs.
+
   Certificates are stored in ".../{PROJECT}/ssl".
 
   This process is required to use https in the local dev environment. If, this

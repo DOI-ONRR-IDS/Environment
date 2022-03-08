@@ -84,13 +84,3 @@ https://stackoverflow.com/a/53090169/3224736
   * [html2canvas options](https://html2canvas.hertzen.com/configuration)
   * [jsPDF options](https://html2canvas.hertzen.com/configuration)
 * [tiptap](https://www.tiptap.dev/examples/default/)
-
-## Licensing and Copyright
-
-Unless otherwise specified, code created by the U.S. government is not eligible for copyright. Work must be released into the Public Domain and licensed under the Creative Commons Zero license, whenever possible. While Public Domain and CC0 are mostly interchangable within the U.S., the concept of "Public Domain" changes per country. For the purposes of international standardization, the CC0 license is preferable to a pure Public Domain license.
-
-* https://www.law.cornell.edu/uscode/text/17/105
-* https://resources.data.gov/open-licenses/
-* https://www.usa.gov/government-works/
-* https://choosealicense.com/licenses/cc0-1.0/
-* https://creativecommons.org/publicdomain/zero/1.0/

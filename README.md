@@ -55,30 +55,6 @@ git config --global http.schannelCheckRevoke false
 
 [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) - Devtools integration for vue
 
-## Accessibility Resources
-
-### Browser Extensions
-* [Wave](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh) - Rapid WCAG visualizer. Used via the extensions toolbar.
-
-* [axe](https://chrome.google.com/webstore/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd) - Comprehensive WCAG checker. Used via dev tools.
-
-* [Colorblindly](https://chrome.google.com/webstore/detail/colorblindly/floniaahmccleoclneebhhmnjgdfijgg) - Color blindness simulator. Used via the extensions toolbar.
-
-### Client-Side Scripts
-* The sites themselves provide accessibility checks via the `Toolbox` > `Accessibility` tab. Backends: [axe-core](https://github.com/dequelabs/axe-core), [accessibilityjs](https://github.com/github/accessibilityjs)
-
-* [sa11y](https://ryersondmp.github.io/sa11y/) - Client-side script to visualize WCAG checks.
-
-* [tota11y](https://khan.github.io/tota11y/#Try-it) - Client-side script to visualize WCAG checks. Geared toward non-technical users.
-
-### Offline Tools
-* `npm run pa11y` to run a CLI acccessibility tool. Backend: [Pa11y](https://pa11y.org)
-
-* [NVDA Screen Reader](https://www.nvaccess.org/download/) - Free screen reader for Windows.
-
-### Materials
-* [ONRR.gov Accessibility Guidance](https://github.com/ONRR/onrr.gov-site/wiki/Accessibility)
-
 ## Troubleshooting
 
 ### SSL Errors

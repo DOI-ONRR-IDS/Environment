@@ -28,7 +28,7 @@ https://code.visualstudio.com/
 
 \\ TODO
 
-### Node & Node Package Manager (NPM)
+## Node & Node Package Manager (NPM)
 
 Node is a JavaScript environment that is used to manage and bundle the frontend files.
 

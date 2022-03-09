@@ -56,17 +56,3 @@ git config --global http.schannelCheckRevoke false
 ## Dev Tools
 
 [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) - Devtools integration for vue
-
-## Reference
-* [Vue](https://vuejs.org/v2/guide/)
-* [Vue Router](https://router.vuejs.org/guide/)
-* [Vuex](https://vuex.vuejs.org/guide/)
-* [Vuetify](https://vuetifyjs.com/en/getting-started/installation/)
-* [Material Design Icons](https://materialdesignicons.com/) (Use SVG syntax)
-  * [MDI Picker](https://chrome.google.com/webstore/detail/materialdesignicons-picke/edjaedpifkihpjkcgknfokmibkoafhme)
-* [lodash](https://lodash.com/docs) (Use individual import syntax)
-* [Vue Upload Component](https://lian-yue.github.io/vue-upload-component/#/en/documents)
-* [html2pdf](https://github.com/eKoopmans/html2pdf.js)
-  * [html2canvas options](https://html2canvas.hertzen.com/configuration)
-  * [jsPDF options](https://html2canvas.hertzen.com/configuration)
-* [tiptap](https://www.tiptap.dev/examples/default/)

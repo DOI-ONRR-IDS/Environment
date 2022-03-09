@@ -57,22 +57,6 @@ git config --global http.schannelCheckRevoke false
 
 [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) - Devtools integration for vue
 
-## Troubleshooting
-
-### SSL Errors
-
-After installing git and NPM, you were instructed to run some terminal commands. Those commands solve the following SSL errors:
-
-`unable to get local issuer certificate`
-
-`The revocation function was unable to check revocation for the certificate.`
-
-https://stackoverflow.com/a/46408398/3224736
-
-https://stackoverflow.com/a/53064542/3224736
-
-https://stackoverflow.com/a/53090169/3224736
-
 ## Reference
 * [Vue](https://vuejs.org/v2/guide/)
 * [Vue Router](https://router.vuejs.org/guide/)

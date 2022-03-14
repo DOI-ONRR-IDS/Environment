@@ -15,4 +15,8 @@ $env:NODE_ENV='staging'
 
 & "$PSScriptRoot\clear-artifacts.ps1"
 
+npm run unlink
+
+npm install
+
 webpack --mode production --config webpack.staging.js

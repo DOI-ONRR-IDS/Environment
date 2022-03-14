@@ -15,4 +15,8 @@ $env:NODE_ENV='production'
 
 & "$PSScriptRoot\clear-artifacts.ps1"
 
+npm run unlink
+
+npm install
+
 webpack --mode production --config webpack.production.js

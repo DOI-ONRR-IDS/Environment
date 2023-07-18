@@ -4,7 +4,6 @@
 
 .DESCRIPTION
   This script needs to be run once, after the project is first downloaded.
-  - Create an elevated terminal
   - Download missing scripts from https://github.com/DOI-ONRR-IDS/Environment/tree/master/dev-scripts
   - Create .npmrc, if missing
   - Install dependencies
@@ -66,25 +65,31 @@ function DownloadFilesFromRepo {
   }
 }
 
+function RunCommandAsAdmin {
+  Param(
+    [string]$ExecutionPath,
+    [string]$Command
+  )
 
+  $Command = "cd '" + $ExecutionPath + "'; " + $Command + ";"
+  Start-Process -FilePath PowerShell.exe -Verb Runas -ArgumentList '-Command', $Command
+}
 
-<#
-  Elevate terminal
-#>
-
-$OriginalLocation = "$pwd"
-
-# Ask for elevated session.
-# This may trigger a UAC confirmation.
-if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator'))
-{
-  if ([int](Get-CimInstance -Class Win32_OperatingSystem | Select-Object -ExpandProperty BuildNumber) -ge 6000)
-  {
-    $Command = "cd '" + $OriginalLocation + "'; & '" + $MyInvocation.MyCommand.Path + "' " + $MyInvocation.UnboundArguments + ";"
-    Start-Process -FilePath PowerShell.exe -Verb Runas -ArgumentList '-Command', $Command
-    Exit
+function TestCommandExists {
+  Param ($command)
+  try {
+    if(Get-Command $command) {
+      return $true;
+    }
+  } 
+  Catch {
+    return $false;
   }
 }
+
+
+
+$OriginalLocation = "$pwd"
 
 
 
@@ -127,7 +132,7 @@ if (!(Test-Path $NPMRCPath))
 
   if (!(Test-Path $NPMRCExamplePath))
   {
-    Write-Host ".npmrc.example file not found. Aborting..."
+    Write-Host ".npmrc.example file not found! Exiting..."
     Exit
   }
 
@@ -136,6 +141,9 @@ if (!(Test-Path $NPMRCPath))
   Copy-Item -Path $NPMRCExamplePath -Destination $NPMRCPath
 
   (Get-Content $NPMRCPath).replace("_authToken=", "_authToken=$NPMPAT") | Set-Content $NPMRCPath
+}
+else {
+  Write-Host ".npmrc file already present."
 }
 
 
@@ -165,7 +173,12 @@ if (!(Test-Path $CertsFolder))
 
 # Install the mkcert utility.
 Write-Host "Installing mkcert..."
-choco install mkcert
+if(!(TestCommandExists -Command "mkcert")) {
+  RunCommandAsAdmin -ExecutionPath $OriginalLocation -Command "choco install mkcert"
+}
+else {
+  Write-Host "mkcert already installed."
+}
 
 # Add the mkcert certificate authority to the machine.
 # On first-run, this will generate a confirmation window.
@@ -178,5 +191,4 @@ mkcert -key-file $CertsFolder/localhost-key.pem -cert-file $CertsFolder/localhos
 
 # Re-add the certificate to the machine's store.
 Write-Host "Installing self-signed certificate..."
-certutil -delstore -f "ROOT" $CertsFolder/localhost.pem
-certutil -addstore -f "ROOT" $CertsFolder/localhost.pem
+RunCommandAsAdmin -ExecutionPath $OriginalLocation -Command "certutil -delstore -f ""ROOT"" $CertsFolder/localhost.pem; certutil -addstore -f ""ROOT"" $CertsFolder/localhost.pem;"

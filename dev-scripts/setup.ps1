@@ -152,7 +152,7 @@ else {
   Install dependencies
 #>
 
-dotnet restore
+dotnet restore -f --force-evaluate -s all
 
 npm install
 

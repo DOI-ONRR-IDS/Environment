@@ -78,7 +78,7 @@ function RunCommandAsAdmin {
 function TestCommandExists {
   Param ($command)
   try {
-    if(Get-Command $command) {
+    if(Get-Command $command -ErrorAction Stop) {
       return $true;
     }
   } 
@@ -174,7 +174,7 @@ if (!(Test-Path $CertsFolder))
 # Install the mkcert utility.
 Write-Host "Installing mkcert..."
 if(!(TestCommandExists -Command "mkcert")) {
-  RunCommandAsAdmin -ExecutionPath $OriginalLocation -Command "choco install mkcert"
+  choco install mkcert
 }
 else {
   Write-Host "mkcert already installed."

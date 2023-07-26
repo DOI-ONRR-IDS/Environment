@@ -35,13 +35,13 @@ function DownloadFilesFromRepo {
 
   $baseUri = "https://api.github.com/"
   $args = "repos/$Owner/$Repository/contents/$Path"
-  $wr = Invoke-WebRequest -Uri $($baseuri+$args)
+  $wr = Invoke-WebRequest -Uri $($baseuri + $args)
   $objects = $wr.Content | ConvertFrom-Json
-  $files = $objects | where {$_.type -eq "file"} | Select -exp download_url
-  $directories = $objects | where {$_.type -eq "dir"}
+  $files = $objects | where { $_.type -eq "file" } | Select -exp download_url
+  $directories = $objects | where { $_.type -eq "dir" }
   
   $directories | ForEach-Object { 
-    DownloadFilesFromRepo -Owner $Owner -Repository $Repository -Path $_.path -DestinationPath $($DestinationPath+$_.name)
+    DownloadFilesFromRepo -Owner $Owner -Repository $Repository -Path $_.path -DestinationPath $($DestinationPath + $_.name)
   }
 
   
@@ -49,7 +49,8 @@ function DownloadFilesFromRepo {
     # Destination path does not exist, let's create it
     try {
       New-Item -Path $DestinationPath -ItemType Directory -ErrorAction Stop
-    } catch {
+    }
+    catch {
       throw "Could not create path '$DestinationPath'!"
     }
   }
@@ -57,9 +58,10 @@ function DownloadFilesFromRepo {
   foreach ($file in $files) {
     $fileDestination = Join-Path $DestinationPath (Split-Path $file -Leaf)
     try {
-      Invoke-WebRequest -Uri $file -OutFile $fileDestination -ErrorAction Stop -Verbose
+      Invoke-WebRequest -Uri $file -OutFile $fileDestination -ErrorAction Stop
       "Grabbed '$($file)' to '$fileDestination'"
-    } catch {
+    }
+    catch {
       throw "Unable to download '$($file.path)'"
     }
   }
@@ -78,7 +80,7 @@ function RunCommandAsAdmin {
 function TestCommandExists {
   Param ($command)
   try {
-    if(Get-Command $command -ErrorAction Stop) {
+    if (Get-Command $command -ErrorAction Stop) {
       return $true;
     }
   } 
@@ -107,8 +109,7 @@ Foreach-Object {
   $Name = $_.Name
   $DestinationFilePath = "$pwd/dev-scripts/$Name"
 
-  if (!(Test-Path $DestinationFilePath))
-  {
+  if (!(Test-Path $DestinationFilePath)) {
     Write-Host "$Name file not found. Creating..."
 
     (Get-Content $FullName) | Set-Content ($DestinationFilePath)
@@ -126,13 +127,11 @@ Remove-Item -Path $TempScriptsPath -Force -Recurse
 $NPMRCPath = "$pwd/.npmrc"
 $NPMRCExamplePath = "$pwd/.npmrc.example"
 
-if (!(Test-Path $NPMRCPath))
-{
+if (!(Test-Path $NPMRCPath)) {
   Write-Host ".npmrc file not found. Creating..."
 
-  if (!(Test-Path $NPMRCExamplePath))
-  {
-    Write-Host ".npmrc.example file not found! Exiting..."
+  if (!(Test-Path $NPMRCExamplePath)) {
+    Write-Host ".npmrc.example file not found! Exiting..." -ForegroundColor Red
     Exit
   }
 
@@ -164,8 +163,7 @@ npm install
 
 $CertsFolder = "$pwd/ssl"
 
-if (!(Test-Path $CertsFolder))
-{
+if (!(Test-Path $CertsFolder)) {
   Write-Host "ssl/ directory not found. Creating..."
 
   New-Item -Path $CertsFolder -ItemType "directory"
@@ -173,7 +171,7 @@ if (!(Test-Path $CertsFolder))
 
 # Install the mkcert utility.
 Write-Host "Installing mkcert..."
-if(!(TestCommandExists -Command "mkcert")) {
+if (!(TestCommandExists -Command "mkcert")) {
   choco install mkcert
 }
 else {
@@ -192,3 +190,8 @@ mkcert -key-file $CertsFolder/localhost-key.pem -cert-file $CertsFolder/localhos
 # Re-add the certificate to the machine's store.
 Write-Host "Installing self-signed certificate..."
 RunCommandAsAdmin -ExecutionPath $OriginalLocation -Command "certutil -delstore -f ""ROOT"" $CertsFolder/localhost.pem; certutil -addstore -f ""ROOT"" $CertsFolder/localhost.pem;"
+
+Write-Host "`n`n"
+Write-Host "Setup complete." -BackgroundColor Green
+Write-Host "Restart your browser to load the new certificates." -ForegroundColor Green
+Write-Host "Use 'npm run watch' to launch the project."

@@ -10,7 +10,7 @@ The "ASP Web API" stack requires both developers and clients to use modern brows
 
 While Chrome, Edge, and Firefox will mostly be interchangable, it is recommended to use Chrome (or a Chromium-based browser with access to extensions) for development. This because additional tooling in the form of browser extensions will be linked to below, which may not have versions or alternatives created for Edge and Firefox.
 
-## Visual Studio 2019
+## Visual Studio 2022
 
 Visual Studio is used to develop the backend files. Both Visual Studio 2019 and the .NET 5 SDK need to be installed. .NET 5 is not backwards-compatible with older versions of Visual Studio.
 

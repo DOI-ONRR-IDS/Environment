@@ -14,7 +14,7 @@ While Chrome, Edge, and Firefox will mostly be interchangable, it is recommended
 
 Visual Studio is used to develop the backend files. Both Visual Studio 2019 and the .NET 5 SDK need to be installed. .NET 5 is not backwards-compatible with older versions of Visual Studio.
 
-https://visualstudio.microsoft.com/vs/older-downloads/#visual-studio-2019-and-other-products
+https://visualstudio.microsoft.com/downloads
 
 https://dotnet.microsoft.com/en-us/download/dotnet/5.0
 

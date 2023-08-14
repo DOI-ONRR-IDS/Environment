@@ -12,7 +12,7 @@ While Chrome, Edge, and Firefox will mostly be interchangable, it is recommended
 
 ## Visual Studio 2022
 
-Visual Studio is used to develop the backend files. Both Visual Studio 2019 and the .NET 5 SDK need to be installed. .NET 5 is not backwards-compatible with older versions of Visual Studio.
+Visual Studio is used to develop the backend files. Both Visual Studio 2022 and the .NET 5 SDK need to be installed. .NET 5 is not backwards-compatible with older versions of Visual Studio.
 
 https://visualstudio.microsoft.com/downloads
 
